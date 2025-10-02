@@ -1,0 +1,1 @@
+This game is made to act as a form of 3D Mission Demolition. The player must shoot the balls into a moving hoop, gaining points. If I had more time I would add more animations to the hoop, so that the patterns the hoop travels in change after players get a certain amount of points. I would also add an arrow that points in the direction of where you are aiming. 
