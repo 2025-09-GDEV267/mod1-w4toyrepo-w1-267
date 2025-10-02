@@ -4,7 +4,7 @@ public class CardScriptableObject : ScriptableObject
 
 {
     public string cardName;
-    public string cardType;
+    public string cardDesc;
     public int HP;
     public int ATK;
     public int SWN;
