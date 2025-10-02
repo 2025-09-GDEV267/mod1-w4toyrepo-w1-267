@@ -11,11 +11,15 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float debugValue;
 
-    bool isGrounded;
-    public float groundDistance;
+
+    public Transform groundCheck;
+    public bool isGrounded;
+    float groundDistance = 0.5f;
     public LayerMask groundMask;
 
     public InputSystem_Actions playerInputManager;
+
+    public float jumpForce;
 
     private void OnEnable()
     {
@@ -32,15 +36,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(transform.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        debugValue = rb.linearVelocity.magnitude;
-        animator.SetFloat("Velocity", rb.linearVelocity.magnitude);
+        debugValue = Mathf.Abs(rb.linearVelocity.x);
+        animator.SetFloat("Velocity", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool("isGrounded", isGrounded);
         moveDir = playerMovement.ReadValue<Vector2>();
 
-        if (Keyboard.current[UnityEngine.InputSystem.Key.Space].wasPressedThisFrame == true && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(new Vector2(moveDir.x * moveSpeed, 0));
+            rb.AddForce(new Vector2(0, jumpForce),ForceMode.Impulse);
+            animator.SetTrigger("Jump");
         }
 
         if (rb.linearVelocity.magnitude > maxSpeed)
