@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(new Vector2(moveDir.x * moveSpeed, 0));
     }
 
+
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -54,11 +55,11 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        if (rb.linearVelocity.x < 0 && rb.linearVelocity.magnitude > 1)
+        if (rb.linearVelocity.x < 0 && rb.linearVelocity.magnitude > Mathf.Epsilon)
         {
             transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, Quaternion.identity.w);
         }
-        else if (rb.linearVelocity.x > 0 && rb.linearVelocity.magnitude > 1)
+        else if (rb.linearVelocity.x > 0 && rb.linearVelocity.magnitude > Mathf.Epsilon)
         {
             transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, Quaternion.identity.w);
         }
