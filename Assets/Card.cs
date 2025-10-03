@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    CardScriptableObject card;
+    public CardScriptableObject card;
 
     public TMP_Text cardName;
     public TMP_Text cardDesc;
