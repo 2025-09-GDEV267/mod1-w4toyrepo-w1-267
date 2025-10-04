@@ -9,7 +9,6 @@ public class DrawDeck : MonoBehaviour
     public Card sceneCard;
     public List<CardScriptableObject> bingusbongus = new List<CardScriptableObject>();
     public List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
-    int pick = 0;
     int deck_Size;
 
     public void drawCard()
@@ -27,14 +26,14 @@ public class DrawDeck : MonoBehaviour
     public List<CardScriptableObject> shuffleDeck(List <CardScriptableObject> list)
     {
         List<CardScriptableObject> newbingusbongus = new List<CardScriptableObject>();
-        deck_Size = list.Count;
+        deck_Size = bingusbongus.Count;
         while (deck_Size > 0)
         {
             int pick = Random.Range(0, deck_Size);
             newbingusbongus.Add(bingusbongus[pick]);
             bingusbongus.Remove(bingusbongus[pick]);
             deck_Size--;
-            deck_Size = list.Count;
+            deck_Size = bingusbongus.Count;
         }
         bingusbongus = newbingusbongus;
         return bingusbongus;
