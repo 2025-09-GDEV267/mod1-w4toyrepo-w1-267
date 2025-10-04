@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Card : MonoBehaviour
 {
     public CardScriptableObject card;
+    List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
 
     public TMP_Text cardName;
     public TMP_Text cardDesc;
@@ -15,6 +17,7 @@ public class Card : MonoBehaviour
 
     public void changeCard(CardScriptableObject newCard)
     {
+        dingusdongus.Add(card);
         card = newCard;
     }
 
