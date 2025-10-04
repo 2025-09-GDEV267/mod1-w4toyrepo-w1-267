@@ -8,11 +8,17 @@ public class DrawDeck : MonoBehaviour
     public CardScriptableObject card;
     public Card sceneCard;
     List<CardScriptableObject> bingusbongus = new List<CardScriptableObject>();
+    List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
     int pick = 0;
     int deck_Size;
 
     public void drawCard()
     {
+        if (bingusbongus.Count == 0)
+        {
+            return;
+        }
+        dingusdongus.Add(card);
         card = bingusbongus[0];
         sceneCard.changeCard(card);
         bingusbongus.Remove(bingusbongus[0]);
@@ -33,6 +39,8 @@ public class DrawDeck : MonoBehaviour
         bingusbongus = newbingusbongus;
         return bingusbongus;
     }
+
+
 
 }
 
