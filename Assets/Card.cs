@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Card : MonoBehaviour
 {
     public CardScriptableObject card;
-    List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
+    public List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
 
     public TMP_Text cardName;
     public TMP_Text cardDesc;

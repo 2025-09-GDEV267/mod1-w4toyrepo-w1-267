@@ -7,8 +7,8 @@ public class DrawDeck : MonoBehaviour
 {
     public CardScriptableObject card;
     public Card sceneCard;
-    List<CardScriptableObject> bingusbongus = new List<CardScriptableObject>();
-    List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
+    public List<CardScriptableObject> bingusbongus = new List<CardScriptableObject>();
+    public List<CardScriptableObject> dingusdongus = new List<CardScriptableObject>();
     int pick = 0;
     int deck_Size;
 
